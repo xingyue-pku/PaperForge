@@ -97,4 +97,4 @@ If you use PaperForge in your work, please cite it. See [CITATION.cff](./CITATIO
 ## Author
 
 **Yue Xing (邢玥)** · PhD candidate at Peking University, Department of Information Management
-[github.com/fightforlearn](https://github.com/fightforlearn)
+[github.com/xingyue-pku](https://github.com/xingyue-pku)

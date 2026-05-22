@@ -6,7 +6,7 @@ authors:
   - family-names: "Xing"
     given-names: "Yue"
     affiliation: "Department of Information Management, Peking University"
-repository-code: "https://github.com/fightforlearn/PaperForge"
+repository-code: "https://github.com/xingyue-pku/PaperForge"
 abstract: >
   PaperForge is a protocol-driven academic writing workflow for method,
   empirical, and data-analysis papers. It provides explicit checkpoints
