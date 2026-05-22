@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+title: "PaperForge: A protocol-driven academic writing workflow"
+message: "If you use this workflow, please cite it as below."
+type: software
+authors:
+  - family-names: "Xing"
+    given-names: "Yue"
+    affiliation: "Department of Information Management, Peking University"
+repository-code: "https://github.com/fightforlearn/PaperForge"
+abstract: >
+  PaperForge is a protocol-driven academic writing workflow for method,
+  empirical, and data-analysis papers. It provides explicit checkpoints
+  for topic selection, scoping review, research-question lock, claim-evidence
+  alignment, anonymization/data-governance checks, failure-mode checklists,
+  and revision gates. Compatible with LLM agent workflows (Claude, GPT, Codex).
+keywords:
+  - academic writing
+  - research workflow
+  - LLM agent
+  - claim-evidence
+  - peer review
+  - reproducibility
+license: MIT
+version: "0.1.0"
+date-released: "2026-05-22"

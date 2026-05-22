@@ -1,0 +1,67 @@
+{
+  "workflow_name": "PaperForge",
+  "project_name": "",
+  "phase": "discovery",
+  "target_journal": "",
+  "backup_journals": [],
+  "language": "zh-CN",
+  "topic_funnel": {
+    "candidate_topics": [],
+    "locked_topic": "",
+    "kill_list": []
+  },
+  "question_lock": {
+    "core_research_object": "",
+    "primary_question": "",
+    "sub_questions": [],
+    "out_of_scope": []
+  },
+  "scoping_review": {
+    "status": "not_started",
+    "seed_papers": [],
+    "theme_clusters": [],
+    "gap_statement": ""
+  },
+  "paper_positioning": "",
+  "core_claims": {
+    "main_claim": "",
+    "sub_claims": []
+  },
+  "scope": {
+    "scene": "",
+    "generalization_boundary": "",
+    "method_boundary": "",
+    "benchmark_boundary": ""
+  },
+  "source_inventory": [],
+  "data_chain": [],
+  "journal_style_rules": [],
+  "red_lines": [],
+  "material_passport": {
+    "completed_boundaries": [],
+    "pending_decisions": [],
+    "next_stage": "",
+    "state_hash": "",
+    "last_updated": "",
+    "revision_history": []
+  },
+  "integrity_gate": {
+    "last_run": "",
+    "last_status": "",
+    "open_blockers": [],
+    "accepted_risks": []
+  },
+  "failure_mode_checklist": {
+    "last_run": "",
+    "modes": {
+      "hallucinated_citations": "not_checked",
+      "implementation_bugs": "not_checked",
+      "hallucinated_results": "not_checked",
+      "shortcut_reliance": "not_checked",
+      "methodology_fabrication": "not_checked",
+      "frame_lock": "not_checked",
+      "bug_as_insight": "not_checked"
+    },
+    "accepted_risks": []
+  }
+}
