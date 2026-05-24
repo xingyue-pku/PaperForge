@@ -45,12 +45,14 @@ It sits between you and the temptation to start freeform drafting before:
 2. **Lock the motivation before paper protocol** — 锁住"为什么读者要 care"才进入协议
 3. **Learn the target venue through 2-3 exemplars before drafting** — 写作前学 venue 的隐性规范
 4. **Build a citation bank upstream of claim-evidence mapping** — 引用先入候选池（3× ratio + 80% recency + 每条 justification）
-5. **Map claim to evidence at three layers** — claim ↔ evidence 三层定位
-6. **Per-unit writing rationale matrix** — 每一段都要解释为什么写、对齐什么 motivation
-7. **Anonymize / data-governance review** as a gate — 脱敏与数据治理作为门槛
-8. **AI research failure-mode checklist (7 modes)** — 失败模式清单（含引文幻觉 / 实现 bug / 结果幻觉等）
-9. **Integrity gate (5 phases)** — 形式层验证 gate
-10. **Reviewer-committee pre-screen** (optional) — 可选预审稿委员会
+5. **Run a concept naming pass — every paper must produce one sticky concept** — 每篇 paper 必须产出一个可被引用的概念命名
+6. **Map claim to evidence at three layers** — claim ↔ evidence 三层定位
+7. **Per-unit writing rationale matrix** — 每一段都要解释为什么写、对齐什么 motivation
+8. **Identify methodology spin-off candidates — don't bury the method in §3.2** — 识别可独立成方法论 paper 的组件
+9. **Anonymize / data-governance review** as a gate — 脱敏与数据治理作为门槛
+10. **AI research failure-mode checklist (7 modes)** — 失败模式清单（含引文幻觉 / 实现 bug / 结果幻觉等）
+11. **Integrity gate (5 phases)** — 形式层验证 gate
+12. **Reviewer-committee pre-screen** (optional) — 可选预审稿委员会
 
 ## Repository structure
 
@@ -83,9 +85,10 @@ PaperForge/
 
 ## Version history
 
-- **v2** (2026-05-24) · PaperSpine-inspired upgrade: motivation_lock + exemplar_learning_dossier + citation_bank + writing_rationale_matrix. Forms a complete "writing preparation" layer.
-- **v1** (2026-05-18) · ARS-inspired upgrade: failure_mode_checklist (7 modes) + integrity_gate (5 phases) + 3-layer citation locator in claim_evidence_matrix + Material Passport in paper_state.json. Forms a complete "back-end quality gate".
-- **v0** (initial) · Topic funnel + question lock + claim-evidence matrix + revision gate + role split.
+- **v0.4** (2026-05-24) · Series & branding upgrade: Step 4.8 Concept Naming Pass (every paper must produce one sticky concept) + Step 6.4 Methodology Spin-off Check (don't bury the method). Distilled from sustained study of high-output IS scholars.
+- **v0.3** (2026-05-24) · PaperSpine-inspired upgrade: motivation_lock + exemplar_learning_dossier + citation_bank + writing_rationale_matrix. Forms a complete "writing preparation" layer.
+- **v0.2** (2026-05-18) · ARS-inspired upgrade: failure_mode_checklist (7 modes) + integrity_gate (5 phases) + 3-layer citation locator in claim_evidence_matrix + Material Passport in paper_state.json. Forms a complete "back-end quality gate".
+- **v0.1** (initial) · Topic funnel + question lock + claim-evidence matrix + revision gate + role split.
 
 ## How to use
 

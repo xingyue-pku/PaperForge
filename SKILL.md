@@ -37,6 +37,7 @@ For a new paper workspace, create these files first:
 - `workflow/revision_gate.md`
 - `notes/paper_state.json` (includes Material Passport fields for multi-session resume)
 - `workflow/human_style_policy.md` (optional but recommended before final style polishing)
+- `notes/methodology_spinoff_candidates.md` (created if Step 6.4 identifies spin-off candidates)
 
 Then generate or revise:
 
@@ -214,6 +215,29 @@ Empirical basis for this discipline: Zhao et al. (2026, arXiv:2605.07723) audite
 
 The claim-evidence matrix in Step 5 may only draw Layer 3 evidence from the A/B-tier entries in this bank. Any citation that bypasses the bank is forbidden in the final draft.
 
+### Step 4.8. Run the Concept Naming Pass
+
+Every PaperForge paper must produce **at least one sticky concept** — a noun phrase or acronym that future papers can cite and extend. Without one, the paper risks being remembered only as "that paper that found X" with no lasting citation handle.
+
+Use a Concept Naming Pass to generate and lock the paper's sticky concept before drafting begins.
+
+Naming constraints (all must hold):
+
+1. **Noun phrase or acronym** — not a verb phrase, not a sentence
+2. **Acronym-friendly (3-6 letters preferred)** OR **short phrase reusable in other papers** (e.g., "topic diversity", "attention inequality", "core-periphery structure")
+3. **Differentiating** — search the literature; if the name or close variant already exists with a different meaning, reject or modify
+4. **Computable / measurable** — future papers must be able to cite the name AND extend the measurement to new data (e.g., "CDAG of NeurIPS 2024 reviewers" should be a meaningful phrase)
+5. **Motivation-aligned** — must directly express the locked motivation from Step 4.5
+
+Procedure:
+
+1. Generate 3 candidate names, ranked by strength
+2. For each candidate, write a one-sentence differentiation check and a one-sentence measurability check
+3. Pick one final name; record in `motivation_lock.md` under a new field `sticky_concept`
+4. From this point on, the sticky concept must appear in: paper title (if possible), abstract first or last sentence, introduction's contribution sentence, and at least 5 times in the body
+
+Empirical basis: Observation of citation patterns in information science suggests that successful paper lines are typically anchored by an early-paper-introduced sticky concept (a short noun phrase or acronym that later papers can both cite and extend). Papers without such anchors tend to be cited as "see also" but rarely as "we extend X's framework of Y".
+
 ### Step 5. Build the Claim-Evidence Matrix
 
 Every major claim must have:
@@ -276,6 +300,28 @@ Maintenance rules:
 5. When reviewer feedback arrives, map each comment to specific unit_id and judge whether the comment is cosmetic or structural before acting
 
 This matrix is the strongest defense against the "deep revision becomes shallow patch" failure mode and against unit-by-unit drift across revision rounds.
+
+### Step 6.4. Identify Methodology Spin-off Candidates
+
+Once the writing_rationale_matrix controlling framework is filled, evaluate whether the paper's method itself deserves a separate methods paper.
+
+A spin-off is warranted when **all three** hold:
+
+1. The paper's method contains **≥ 2 novel methodological components** that could each support a separate methods paper
+2. The application domain in this paper is narrow enough that the method has cross-domain value not exhausted by this submission
+3. There exists a distinct, fit venue for the method paper (e.g., main paper → IPM application; method paper → Journal of Informetrics methodology)
+
+If yes to all three, record in `notes/methodology_spinoff_candidates.md`:
+
+- candidate spin-off title
+- which method components from main paper feed it
+- target venue (must differ from main paper's venue)
+- estimated 2-3 month writing gap after main paper submission
+- decision date (when to commit or drop)
+
+This step prevents the most common failure mode for method-heavy applied papers: the method is buried in §3.2 of an application paper, future papers cite the application but never the method. Spinning the method out gives it its own citation handle.
+
+Empirical basis: Mature applied-research lines in information science routinely spin off methodology contributions into separate venues alongside application papers. The spin-off requires conscious early identification — burying the method first then trying to extract it later usually fails because the method becomes intertwined with application-specific decisions by the time anyone tries to lift it out.
 
 ### Step 6.5. Run the Integrity Gate Before Revision Gate
 

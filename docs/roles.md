@@ -43,3 +43,19 @@
 
 - only attacks the draft
 - surfaces blockers and major revision risks
+
+## Concept Naming Agent
+
+- triggered at Step 4.8, after motivation_lock and before claim_evidence_matrix
+- generates 3 candidate sticky-concept names for the paper's main finding
+- enforces naming constraints: noun phrase or acronym; 3-6 letter acronym preferred OR short reusable phrase; differentiating against prior literature; computable / measurable; motivation-aligned
+- records the chosen name in `motivation_lock.md` field `sticky_concept`
+- audit role: ensures the concept appears in title, abstract opener/closer, contribution sentence, and ≥ 5 times in body
+
+## Methodology Spin-off Agent
+
+- triggered at Step 6.4, after writing_rationale_matrix controlling framework is filled
+- evaluates whether the paper's method itself merits a separate methods paper
+- requires all of: ≥ 2 novel methodological components; cross-domain method value; distinct venue available for the method paper
+- if all hold, records spin-off candidate in `notes/methodology_spinoff_candidates.md` with title / feeding components / target venue / decision date
+- prevents the failure mode where method is buried in §3.2 of an application paper and never cited as a standalone contribution

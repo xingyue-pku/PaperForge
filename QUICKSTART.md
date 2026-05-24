@@ -43,13 +43,15 @@ Use them in this order:
 4. lock the motivation (why the reader must care)
 5. learn target venue through 2-3 exemplars; produce scene norms + style profile
 6. build citation bank (3× target ratio, 80% recency, justification per entry)
-7. fill paper state
-8. define protocol
-9. map claims to evidence via 3-layer locator, drawing only from citation bank A/B tier
-10. before drafting any unit, fill a row in writing_rationale_matrix
-11. before any integration round, run failure mode checklist + integrity gate
-12. then run revision gate
-13. before integrating a serious draft, run a reviewer committee pre-screen if the paper has desk-reject risk
+7. **run concept naming pass — lock at least one sticky concept (noun phrase / acronym) the paper will be cited by**
+8. fill paper state
+9. define protocol
+10. map claims to evidence via 3-layer locator, drawing only from citation bank A/B tier
+11. before drafting any unit, fill a row in writing_rationale_matrix
+12. **identify methodology spin-off candidates — record any method components warranting a separate methods paper**
+13. before any integration round, run failure mode checklist + integrity gate
+14. then run revision gate
+15. before integrating a serious draft, run a reviewer committee pre-screen if the paper has desk-reject risk
 
 ## Topic Lock Rule
 
