@@ -10,9 +10,12 @@ repository-code: "https://github.com/xingyue-pku/PaperForge"
 abstract: >
   PaperForge is a protocol-driven academic writing workflow for method,
   empirical, and data-analysis papers. It provides explicit checkpoints
-  for topic selection, scoping review, research-question lock, claim-evidence
-  alignment, anonymization/data-governance checks, failure-mode checklists,
-  and revision gates. Compatible with LLM agent workflows (Claude, GPT, Codex).
+  for topic selection, motivation lock, target-venue exemplar learning,
+  citation bank construction, claim-evidence alignment (3-layer locator),
+  per-unit writing rationale matrix, anonymization and data-governance
+  checks, AI research failure-mode checklist (7 modes), integrity gates
+  (5 phases), and revision gates. Compatible with LLM agent workflows
+  (Claude, GPT, Codex).
 keywords:
   - academic writing
   - research workflow
@@ -20,6 +23,10 @@ keywords:
   - claim-evidence
   - peer review
   - reproducibility
+  - motivation lock
+  - citation bank
+  - writing rationale matrix
+  - integrity gate
 license: MIT
-version: "0.1.0"
-date-released: "2026-05-22"
+version: "0.3.0"
+date-released: "2026-05-24"

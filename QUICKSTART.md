@@ -14,20 +14,24 @@ your_paper/
   tables/
 ```
 
-Copy the templates from `assets/templates/`.
+Copy the templates from `templates/`.
 
-## First Ten Files
+## First Fourteen Files
 
 1. `workflow/topic_selection.md`
 2. `workflow/scoping_review.md`
 3. `workflow/question_lock.md`
-4. `notes/source_inventory.md`
-5. `workflow/paper_protocol.md`
-6. `workflow/claim_evidence_matrix.md`
-7. `workflow/failure_mode_checklist.md`
-8. `workflow/integrity_gate.md`
-9. `workflow/revision_gate.md`
-10. `notes/paper_state.json`
+4. `workflow/motivation_lock.md`
+5. `workflow/exemplar_learning_dossier.md` (produces `target_scene_norms.md` + `style_profile.md`)
+6. `workflow/citation_bank.md`
+7. `notes/source_inventory.md`
+8. `workflow/paper_protocol.md`
+9. `workflow/claim_evidence_matrix.md`
+10. `workflow/writing_rationale_matrix.md`
+11. `workflow/failure_mode_checklist.md`
+12. `workflow/integrity_gate.md`
+13. `workflow/revision_gate.md`
+14. `notes/paper_state.json`
 
 ## Order
 
@@ -35,14 +39,17 @@ Use them in this order:
 
 1. build candidate topics
 2. run a scoping literature pass
-3. lock one question
-4. fill paper state
-5. define protocol
-6. map claims to evidence via 3-layer locator
-7. before any integration round, run failure mode checklist + integrity gate
-8. then run revision gate
-9. then start role-based drafting
-10. before integrating a serious draft, run a reviewer committee pre-screen if the paper has desk-reject risk
+3. lock the research question
+4. lock the motivation (why the reader must care)
+5. learn target venue through 2-3 exemplars; produce scene norms + style profile
+6. build citation bank (3× target ratio, 80% recency, justification per entry)
+7. fill paper state
+8. define protocol
+9. map claims to evidence via 3-layer locator, drawing only from citation bank A/B tier
+10. before drafting any unit, fill a row in writing_rationale_matrix
+11. before any integration round, run failure mode checklist + integrity gate
+12. then run revision gate
+13. before integrating a serious draft, run a reviewer committee pre-screen if the paper has desk-reject risk
 
 ## Topic Lock Rule
 

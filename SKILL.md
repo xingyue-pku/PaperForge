@@ -25,9 +25,13 @@ For a new paper workspace, create these files first:
 - `workflow/topic_selection.md`
 - `workflow/scoping_review.md`
 - `workflow/question_lock.md`
+- `workflow/motivation_lock.md` (locks central argument before drafting)
+- `workflow/exemplar_learning_dossier.md` (learns target venue's strong examples; produces target_scene_norms + style_profile)
+- `workflow/citation_bank.md` (3× target ratio candidate pool, 80% recency, justification per entry)
 - `notes/source_inventory.md`
 - `workflow/paper_protocol.md`
-- `workflow/claim_evidence_matrix.md` (with 3-layer citation locator)
+- `workflow/claim_evidence_matrix.md` (with 3-layer citation locator; draws from citation_bank)
+- `workflow/writing_rationale_matrix.md` (per-unit rationale; deep-revision-only defense)
 - `workflow/failure_mode_checklist.md` (7-mode AI research failure modes)
 - `workflow/integrity_gate.md` (5-phase formal-layer verification)
 - `workflow/revision_gate.md`
@@ -68,7 +72,7 @@ your_paper/
   tables/
 ```
 
-Use the templates in `assets/templates/`:
+Use the templates in `templates/`:
 
 - `topic_selection_template.md`
 - `scoping_review_template.md`
@@ -156,6 +160,60 @@ Use `workflow/question_lock.md` to freeze:
 
 If you cannot fill this file cleanly, the topic is not ready for drafting.
 
+### Step 4.5. Lock the Motivation Before Protocol
+
+`question_lock` locks the **scientific question**. `motivation_lock` locks **why the reader must care**. These are different layers — motivation cannot be derived from question alone.
+
+Use `workflow/motivation_lock.md` to freeze:
+
+1. one-sentence motivation: `{reader type} + {current default belief / gap} + {what this paper makes them reconsider}`
+2. target audience (≤ 3 groups), with explicit exclusion of who this is NOT for
+3. one-sentence "what the reader can do after reading"
+4. mapping from `main_claim` (question_lock) to motivation (the "so what" jump)
+5. three ranked contribution claims
+6. why-now timing rationale
+7. why-you rationale (private, not in paper)
+8. why-not-others rationale (private)
+
+This file forbids fillers like "本文意义在于…" / "首次研究…" / "希望对…有所启发". If motivation cannot be locked cleanly, do NOT proceed to drafting — return to scoping or question lock.
+
+### Step 4.6. Learn the Target Venue Through Exemplars
+
+Use `workflow/exemplar_learning_dossier.md` to **structurally study** 2-3 strong recent papers from the target venue, before drafting any substantive section.
+
+Each exemplar must come from one of three categories:
+
+1. same topic neighbor (closest research question)
+2. same method neighbor (closest method, different topic)
+3. same column top-tier (award / highly-cited from same section)
+
+Each exemplar produces:
+
+- per-section analysis (what they did / what to borrow / what to avoid duplicating)
+- key sentence patterns (3-5 quotes per exemplar)
+
+The dossier consolidates into two operable outputs:
+
+- `target_scene_norms.md` — venue's implicit norms (intro length, contribution sentence form, related-work placement, etc.)
+- `style_profile.md` — sentence length, paragraph density, term density, voice, tense, naming style
+
+After drafting any major section, run a reverse audit against these two outputs. Explicitly decide for any deviation whether to align or deliberately diverge (with stated reason).
+
+### Step 4.7. Build the Citation Bank
+
+Use `workflow/citation_bank.md` to construct the upstream candidate pool that feeds Step 5's claim-evidence matrix.
+
+Rules:
+
+1. **3× target ratio** — candidate pool ≥ 3 × intended final citation count
+2. **80% recency** — at least 80% of candidates from past 5 years
+3. **per-entry justification sentence** required: `citation` + `target_use_section` + `why_in_pool` + `strength` (A=must, B=should, C=candidate)
+4. organize candidates by topic group, ordered reverse-chronologically within group
+
+Empirical basis for this discipline: Zhao et al. (2026, arXiv:2605.07723) audited 111M references across 4 platforms and conservatively estimated 146,932 hallucinated citations in 2025 alone — without a curated candidate pool, AI-assisted writing tends to fabricate or misattribute citations.
+
+The claim-evidence matrix in Step 5 may only draw Layer 3 evidence from the A/B-tier entries in this bank. Any citation that bypasses the bank is forbidden in the final draft.
+
 ### Step 5. Build the Claim-Evidence Matrix
 
 Every major claim must have:
@@ -195,6 +253,30 @@ It includes:
 
 Never let one role write, interpret, and approve itself.
 
+### Step 6.3. Build the Writing Rationale Matrix Before Drafting Each Unit
+
+Use `workflow/writing_rationale_matrix.md` to record, for each manuscript unit (chapter / section / sub-section / key argumentative paragraph), the rationale of its existence.
+
+The first row of the matrix is the **controlling framework** — the paper-level rationale (controlling motivation, target venue, paper arc, minimum evidence set, out-of-scope). Every subsequent row covers one unit with these fields:
+
+- `unit_id` (stable; never recycled even after deletion)
+- `what_it_does` (functional description, not result summary)
+- `motivation_alignment` (which strand of motivation it advances)
+- `sota_pattern_or_anchor` (which strong paper's corresponding section was referenced)
+- `target_venue_norm` (venue convention for this unit type)
+- `user_evidence_source` (data table or literature anchor)
+- `planned_final_check` (specific check that must pass before submission)
+
+Maintenance rules:
+
+1. Any new unit requires a rationale row before any prose is written into it
+2. Any deleted unit must be marked `DELETED YYYY-MM-DD + reason` in the row (do not remove rows, preserve audit trail)
+3. Any unit with ≥ 50% content change requires updated `what_it_does` and `planned_final_check`
+4. Before integrity gate, every unit's `planned_final_check` must pass
+5. When reviewer feedback arrives, map each comment to specific unit_id and judge whether the comment is cosmetic or structural before acting
+
+This matrix is the strongest defense against the "deep revision becomes shallow patch" failure mode and against unit-by-unit drift across revision rounds.
+
 ### Step 6.5. Run the Integrity Gate Before Revision Gate
 
 Before any revision-gate sign-off or submission round, run two formal-layer checks:
@@ -217,14 +299,17 @@ Before each integration round, check:
 
 0. `integrity_gate.md` and `failure_mode_checklist.md` have both signed off (Step 6.5)
 1. the topic is locked and the question has not drifted
-2. literature positioning still matches the actual draft
-3. title, abstract, research questions, and contribution claims are aligned
-4. all claims have evidence via 3-layer locator
-5. anonymization is clean
-6. supplementary validation is not overstated
-7. discussion sentences can trace back to results
-8. reviewer committee outputs do not contain unresolved desk-reject blockers
-9. if a prose-risk pass is used, it follows `human_style_policy.md` and does not alter claims, citations, numeric meaning, or generalization boundary
+2. motivation lock (Step 4.5) is unchanged; if it has shifted, all downstream artifacts must be re-derived
+3. literature positioning still matches the actual draft AND the citation_bank still covers all used citations
+4. title, abstract, research questions, and contribution claims are aligned
+5. all claims have evidence via 3-layer locator (and all evidence comes from citation_bank A/B tier)
+6. anonymization is clean
+7. supplementary validation is not overstated
+8. discussion sentences can trace back to results
+9. all writing_rationale_matrix `planned_final_check` items pass
+10. drafted sections audit cleanly against `target_scene_norms.md` and `style_profile.md`
+11. reviewer committee outputs do not contain unresolved desk-reject blockers
+12. if a prose-risk pass is used, it follows `human_style_policy.md` and does not alter claims, citations, numeric meaning, or generalization boundary
 
 If a blocker remains, do not proceed to the next integration round.
 
@@ -314,10 +399,10 @@ Also tune:
 
 ## When To Read Extra Files
 
-Read from `references/` when you need:
+Read from `docs/` when you need:
 
 - role definitions
 - quickstart steps
 - reusable protocol guidance
 
-Use `assets/templates/` when creating a new paper workflow.
+Use `templates/` when creating a new paper workflow.

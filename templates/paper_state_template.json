@@ -16,6 +16,37 @@
     "sub_questions": [],
     "out_of_scope": []
   },
+  "motivation_lock": {
+    "status": "not_started",
+    "one_sentence_motivation": "",
+    "target_audience_primary": "",
+    "target_audience_excluded": "",
+    "contribution_claims": [],
+    "why_now": "",
+    "lock_date": ""
+  },
+  "exemplar_learning_dossier": {
+    "status": "not_started",
+    "exemplars": [],
+    "target_scene_norms_filed": false,
+    "style_profile_filed": false,
+    "last_updated": ""
+  },
+  "citation_bank": {
+    "status": "not_started",
+    "target_citation_count": 0,
+    "candidate_pool_size": 0,
+    "recency_pct": 0,
+    "a_tier_count": 0,
+    "last_updated": ""
+  },
+  "writing_rationale_matrix": {
+    "status": "not_started",
+    "controlling_framework_filled": false,
+    "unit_count": 0,
+    "units_with_planned_check_passed": 0,
+    "last_updated": ""
+  },
   "scoping_review": {
     "status": "not_started",
     "seed_papers": [],
