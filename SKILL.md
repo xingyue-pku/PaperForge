@@ -38,6 +38,7 @@ For a new paper workspace, create these files first:
 - `notes/paper_state.json` (includes Material Passport fields for multi-session resume)
 - `workflow/human_style_policy.md` (optional but recommended before final style polishing)
 - `notes/methodology_spinoff_candidates.md` (created if Step 6.4 identifies spin-off candidates)
+- `workflow/rebuttal_workflow.md` (used only after R&R is received; 4-phase concern decomposition → strategy → draft → safety check)
 
 Then generate or revise:
 
@@ -178,6 +179,30 @@ Use `workflow/motivation_lock.md` to freeze:
 
 This file forbids fillers like "本文意义在于…" / "首次研究…" / "希望对…有所启发". If motivation cannot be locked cleanly, do NOT proceed to drafting — return to scoping or question lock.
 
+### Step 4.55. Scan the Genre / Shell Landscape Across Peer Venues
+
+Before exemplar learning, scan **5-9 peer venues** for the distribution of paper forms (shells) in the target field. Use `workflow/genre_landscape_scan.md`.
+
+The problem this solves: venue mismatch most often stems from **form/shell mismatch** (not text style). A paper can have a correct kernel (motivation, claims, evidence) but be written in a shell — pure problematization review, paradigm-reshaping, theory-position essay, etc. — that no venue in the target field actually publishes.
+
+Triggers (run this step if any holds):
+
+1. Paper form is non-standard (problematization / hermeneutic / critical synthesis / theoretical position)
+2. Step 4.6 exemplar search finds fewer than 3 strong same-form exemplars at the target venue
+3. Author is uncertain whether the chosen form has precedent
+4. Prior rejection contained "interesting but not the form we publish here" or "out of scope for our journal type"
+5. Cross-discipline submission requires form realignment
+
+Procedure (5 phases, see template for details):
+
+1. **Define scan scope** — target venue + 5-8 peer venues; 12-18 month window; same article type only
+2. **Per-venue mini-audit** — count, fixed-section status, trend
+3. **3-5 sample cards per venue** — title / method abstract / output abstract / dominant shell type
+4. **Cross-venue spectrum synthesis** — shell × venue matrix; identify which shells are accepted vs absent
+5. **Decision** — re-shell / re-frame / re-venue / re-genre
+
+This step gates exemplar learning. If the chosen form has no precedent in the target field, the exemplar step will fail (no strong exemplars to learn from), and downstream work will produce an unpublishable paper.
+
 ### Step 4.6. Learn the Target Venue Through Exemplars
 
 Use `workflow/exemplar_learning_dossier.md` to **structurally study** 2-3 strong recent papers from the target venue, before drafting any substantive section.
@@ -224,7 +249,7 @@ Use a Concept Naming Pass to generate and lock the paper's sticky concept before
 Naming constraints (all must hold):
 
 1. **Noun phrase or acronym** — not a verb phrase, not a sentence
-2. **Acronym-friendly (3-6 letters preferred)** OR **short phrase reusable in other papers** (e.g., "topic diversity", "attention inequality", "core-periphery structure")
+2. **Acronym-friendly (3-6 letters preferred)** OR **short noun phrase (≤ 3 words) reusable in downstream papers**
 3. **Differentiating** — search the literature; if the name or close variant already exists with a different meaning, reject or modify
 4. **Computable / measurable** — future papers must be able to cite the name AND extend the measurement to new data (e.g., "CDAG of NeurIPS 2024 reviewers" should be a meaningful phrase)
 5. **Motivation-aligned** — must directly express the locked motivation from Step 4.5
@@ -358,6 +383,19 @@ Before each integration round, check:
 12. if a prose-risk pass is used, it follows `human_style_policy.md` and does not alter claims, citations, numeric meaning, or generalization boundary
 
 If a blocker remains, do not proceed to the next integration round.
+
+### Step 7.5. Rebuttal Workflow (After R&R Received)
+
+When the paper enters Revise & Resubmit status, run the rebuttal workflow before any revision is drafted. See `workflow/rebuttal_workflow.md`.
+
+The workflow enforces four sequential phases:
+
+1. **Concern decomposition** — each reviewer comment is parsed into a structured entry (concern_id, type, target unit_id, verbatim quote, paraphrase, verifiable flag) before any response is drafted
+2. **Strategy lock** — each concern receives one of five strategies (accept_fully / accept_partial / clarify / respectful_disagree / defer) before drafting; `respectful_disagree` capped at 25%
+3. **Response draft** — per-concern reply with mandatory page/section references; explicit ban on filler phrases, defensive language, and concept substitution
+4. **Safety check** — verifies main_claim integrity, writing_rationale_matrix synchronization, numerical/citation consistency (re-run integrity_gate Phase 2/3), cross-reviewer contradiction handling, and 1:1 correspondence between rebuttal letter and marked-up manuscript
+
+The workflow prevents two common rebuttal failure modes: emotional point-by-point reflexive disagreement (editor sides with reviewer), and undifferentiated yes-to-all (core claim quietly weakened).
 
 ### Step 8. Optional Prose-Risk Pass
 

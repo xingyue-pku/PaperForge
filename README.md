@@ -43,16 +43,18 @@ It sits between you and the temptation to start freeform drafting before:
 
 1. **Lock the topic before drafting** — 起草前先锁选题
 2. **Lock the motivation before paper protocol** — 锁住"为什么读者要 care"才进入协议
-3. **Learn the target venue through 2-3 exemplars before drafting** — 写作前学 venue 的隐性规范
-4. **Build a citation bank upstream of claim-evidence mapping** — 引用先入候选池（3× ratio + 80% recency + 每条 justification）
-5. **Run a concept naming pass — every paper must produce one sticky concept** — 每篇 paper 必须产出一个可被引用的概念命名
-6. **Map claim to evidence at three layers** — claim ↔ evidence 三层定位
-7. **Per-unit writing rationale matrix** — 每一段都要解释为什么写、对齐什么 motivation
-8. **Identify methodology spin-off candidates — don't bury the method in §3.2** — 识别可独立成方法论 paper 的组件
-9. **Anonymize / data-governance review** as a gate — 脱敏与数据治理作为门槛
-10. **AI research failure-mode checklist (7 modes)** — 失败模式清单（含引文幻觉 / 实现 bug / 结果幻觉等）
-11. **Integrity gate (5 phases)** — 形式层验证 gate
-12. **Reviewer-committee pre-screen** (optional) — 可选预审稿委员会
+3. **Scan the genre / shell landscape across 5-9 peer venues** — 写作前广扫同类型文章形态光谱，避免内核正确但形态无处可发
+4. **Learn the target venue through 2-3 exemplars before drafting** — 写作前学 venue 的隐性规范
+5. **Build a citation bank upstream of claim-evidence mapping** — 引用先入候选池（3× ratio + 80% recency + 每条 justification）
+6. **Run a concept naming pass — every paper must produce one sticky concept** — 每篇 paper 必须产出一个可被引用的概念命名
+7. **Map claim to evidence at three layers** — claim ↔ evidence 三层定位
+8. **Per-unit writing rationale matrix** — 每一段都要解释为什么写、对齐什么 motivation
+9. **Identify methodology spin-off candidates — don't bury the method in §3.2** — 识别可独立成方法论 paper 的组件
+10. **Anonymize / data-governance review** as a gate — 脱敏与数据治理作为门槛
+11. **AI research failure-mode checklist (7 modes)** — 失败模式清单（含引文幻觉 / 实现 bug / 结果幻觉等）
+12. **Integrity gate (5 phases)** — 形式层验证 gate
+13. **Rebuttal workflow (4 phases)** — R&R 后的 concern 拆解 → 策略锁定 → 草稿 → safety check，防硬刚和盲从两种失败模式
+14. **Reviewer-committee pre-screen** (optional) — 可选预审稿委员会
 
 ## Repository structure
 
@@ -63,28 +65,31 @@ PaperForge/
 ├── QUICKSTART.md            # quickstart with 14-file workflow
 ├── docs/
 │   └── roles.md             # agent role decomposition (writer / reviewer / verifier / style-polisher)
-├── templates/               # 15 workflow templates (markdown + JSON)
+├── templates/               # 17 workflow templates (markdown + JSON)
 │   ├── topic_selection_template.md
 │   ├── scoping_review_template.md
 │   ├── question_lock_template.md
-│   ├── motivation_lock_template.md            # NEW (v2: PaperSpine-inspired)
-│   ├── exemplar_learning_dossier_template.md  # NEW (v2)
-│   ├── citation_bank_template.md              # NEW (v2)
+│   ├── motivation_lock_template.md
+│   ├── genre_landscape_scan_template.md       # NEW (v0.5: form/shell spectrum scan across peer venues)
+│   ├── exemplar_learning_dossier_template.md
+│   ├── citation_bank_template.md
 │   ├── source_inventory_template.md
 │   ├── paper_protocol_template.md
-│   ├── claim_evidence_matrix_template.md      # upgraded (v1: 3-layer locator)
-│   ├── writing_rationale_matrix_template.md   # NEW (v2)
-│   ├── failure_mode_checklist_template.md     # v1: 7-mode AI research failure modes
-│   ├── integrity_gate_template.md             # v1: 5-phase formal-layer verification
+│   ├── claim_evidence_matrix_template.md
+│   ├── writing_rationale_matrix_template.md
+│   ├── failure_mode_checklist_template.md
+│   ├── integrity_gate_template.md
 │   ├── revision_gate_template.md
+│   ├── rebuttal_workflow_template.md          # NEW (v0.5: 4-phase R&R handling)
 │   ├── human_style_policy_template.md
-│   └── paper_state_template.json              # v2: includes motivation_lock / exemplar / citation_bank / rationale_matrix / integrity_gate / failure_mode_checklist / material_passport fields
+│   └── paper_state_template.json
 ├── LICENSE                  # MIT
 └── CITATION.cff
 ```
 
 ## Version history
 
+- **v0.5** (2026-05-25) · Form/shell + R&R upgrade: `genre_landscape_scan_template.md` (scans 5-9 peer venues for form/shell distribution before exemplar learning, prevents "right kernel but no venue accepts the form" failure) + `rebuttal_workflow_template.md` (4-phase R&R handling distilled from peer paper-skill work).
 - **v0.4** (2026-05-24) · Series & branding upgrade: Step 4.8 Concept Naming Pass (every paper must produce one sticky concept) + Step 6.4 Methodology Spin-off Check (don't bury the method). Distilled from sustained study of high-output IS scholars.
 - **v0.3** (2026-05-24) · PaperSpine-inspired upgrade: motivation_lock + exemplar_learning_dossier + citation_bank + writing_rationale_matrix. Forms a complete "writing preparation" layer.
 - **v0.2** (2026-05-18) · ARS-inspired upgrade: failure_mode_checklist (7 modes) + integrity_gate (5 phases) + 3-layer citation locator in claim_evidence_matrix + Material Passport in paper_state.json. Forms a complete "back-end quality gate".
