@@ -45,16 +45,17 @@ It sits between you and the temptation to start freeform drafting before:
 2. **Lock the motivation before paper protocol** — 锁住"为什么读者要 care"才进入协议
 3. **Scan the genre / shell landscape across 5-9 peer venues** — 写作前广扫同类型文章形态光谱，避免内核正确但形态无处可发
 4. **Learn the target venue through 2-3 exemplars before drafting** — 写作前学 venue 的隐性规范
-5. **Build a citation bank upstream of claim-evidence mapping** — 引用先入候选池（3× ratio + 80% recency + 每条 justification）
-6. **Run a concept naming pass — every paper must produce one sticky concept** — 每篇 paper 必须产出一个可被引用的概念命名
-7. **Map claim to evidence at three layers** — claim ↔ evidence 三层定位
-8. **Per-unit writing rationale matrix** — 每一段都要解释为什么写、对齐什么 motivation
-9. **Identify methodology spin-off candidates — don't bury the method in §3.2** — 识别可独立成方法论 paper 的组件
-10. **Anonymize / data-governance review** as a gate — 脱敏与数据治理作为门槛
-11. **AI research failure-mode checklist (7 modes)** — 失败模式清单（含引文幻觉 / 实现 bug / 结果幻觉等）
-12. **Integrity gate (5 phases)** — 形式层验证 gate
-13. **Rebuttal workflow (4 phases)** — R&R 后的 concern 拆解 → 策略锁定 → 草稿 → safety check，防硬刚和盲从两种失败模式
-14. **Reviewer-committee pre-screen** (optional) — 可选预审稿委员会
+5. **Lock the master outline through reviewer rounds before drafting** — 写作前通过多轮 reviewer 反馈锁定题目 / 节结构 / 子节论点 / 图表配置
+6. **Build a citation bank upstream of claim-evidence mapping** — 引用先入候选池（3× ratio + 80% recency + 每条 justification）
+7. **Run a concept naming pass — every paper must produce one sticky concept** — 每篇 paper 必须产出一个可被引用的概念命名
+8. **Map claim to evidence at three layers** — claim ↔ evidence 三层定位
+9. **Per-unit writing rationale matrix** — 每一段都要解释为什么写、对齐什么 motivation
+10. **Identify methodology spin-off candidates — don't bury the method in §3.2** — 识别可独立成方法论 paper 的组件
+11. **Anonymize / data-governance review** as a gate — 脱敏与数据治理作为门槛
+12. **AI research failure-mode checklist (7 modes)** — 失败模式清单（含引文幻觉 / 实现 bug / 结果幻觉等）
+13. **Integrity gate (5 phases)** — 形式层验证 gate
+14. **Rebuttal workflow (4 phases)** — R&R 后的 concern 拆解 → 策略锁定 → 草稿 → safety check，防硬刚和盲从两种失败模式
+15. **Reviewer-committee pre-screen** (optional) — 可选预审稿委员会
 
 ## Repository structure
 
@@ -70,8 +71,9 @@ PaperForge/
 │   ├── scoping_review_template.md
 │   ├── question_lock_template.md
 │   ├── motivation_lock_template.md
-│   ├── genre_landscape_scan_template.md       # NEW (v0.5: form/shell spectrum scan across peer venues)
+│   ├── genre_landscape_scan_template.md
 │   ├── exemplar_learning_dossier_template.md
+│   ├── master_outline_lockin_template.md       # NEW (v0.6: multi-round outline lock-in)
 │   ├── citation_bank_template.md
 │   ├── source_inventory_template.md
 │   ├── paper_protocol_template.md
@@ -89,6 +91,7 @@ PaperForge/
 
 ## Version history
 
+- **v0.6** (2026-05-27) · Outline-lock upgrade: `master_outline_lockin_template.md` (Step 4.65 — iteratively lock title, section structure, subsection arguments, and figure/table config through multiple reviewer rounds before drafting). Closes the gap between "why / what shell / what style" (upstream steps) and "what each section actually argues" (the drafting interface).
 - **v0.5** (2026-05-25) · Form/shell + R&R upgrade: `genre_landscape_scan_template.md` (scans 5-9 peer venues for form/shell distribution before exemplar learning, prevents "right kernel but no venue accepts the form" failure) + `rebuttal_workflow_template.md` (4-phase R&R handling distilled from peer paper-skill work).
 - **v0.4** (2026-05-24) · Series & branding upgrade: Step 4.8 Concept Naming Pass (every paper must produce one sticky concept) + Step 6.4 Methodology Spin-off Check (don't bury the method). Distilled from sustained study of high-output IS scholars.
 - **v0.3** (2026-05-24) · PaperSpine-inspired upgrade: motivation_lock + exemplar_learning_dossier + citation_bank + writing_rationale_matrix. Forms a complete "writing preparation" layer.

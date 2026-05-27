@@ -26,7 +26,9 @@ For a new paper workspace, create these files first:
 - `workflow/scoping_review.md`
 - `workflow/question_lock.md`
 - `workflow/motivation_lock.md` (locks central argument before drafting)
+- `workflow/genre_landscape_scan.md` (scans 5-9 peer venues for form/shell distribution; gates exemplar learning)
 - `workflow/exemplar_learning_dossier.md` (learns target venue's strong examples; produces target_scene_norms + style_profile)
+- `workflow/master_outline_lockin.md` (iteratively locks title + section structure + subsection arguments + figure/table config through reviewer rounds, before drafting)
 - `workflow/citation_bank.md` (3× target ratio candidate pool, 80% recency, justification per entry)
 - `notes/source_inventory.md`
 - `workflow/paper_protocol.md`
@@ -224,6 +226,49 @@ The dossier consolidates into two operable outputs:
 - `style_profile.md` — sentence length, paragraph density, term density, voice, tense, naming style
 
 After drafting any major section, run a reverse audit against these two outputs. Explicitly decide for any deviation whether to align or deliberately diverge (with stated reason).
+
+### Step 4.65. Lock the Master Outline Through Reviewer Rounds
+
+Use `workflow/master_outline_lockin.md` to iteratively lock the title + section structure + subsection arguments + figure/table configuration **through multiple reviewer rounds**, before any substantive drafting.
+
+This step exists because the upstream steps tell you why (motivation_lock), what shell (genre_landscape_scan), and what style (exemplar_learning_dossier) — but none of them tell you the exact argument every section will make. Without explicit outline locking, drafting becomes a moving target: structure shifts every chapter, completed sections get scrapped, deadline slips.
+
+Procedure (3 phases):
+
+1. **Draft v0 outline**: build from motivation_lock + genre_landscape_scan + exemplar_learning_dossier outputs. Title uses the 4-element framework (主题词 1 + 主题词 2 + 研究领域 + 写作方式). Subtitle three segments map directly to the three main body sections.
+
+2. **Multiple reviewer rounds**: submit current outline to a skeptical reviewer (peer / another AI agent / Desk Reject Editor Simulator). Reviewer raises specific structural / conceptual / naming issues. Respond per item (accept / modify / reject with reason). Iterate until a round only produces surface-level changes.
+
+3. **Lock-in checklist**: confirm 10 items before declaring "outline locked":
+   - 4-element title framework filled
+   - Subtitle three segments = three main body sections
+   - Central question one sentence — every subsection回扣 it
+   - Same closing sentence structure per main section (e.g., "X advanced Y but did not open Z")
+   - Diagnosis sections vs solution sections strictly separated (no concept repetition)
+   - Figure economy: core contribution figure ≥ supporting evidence ≥ descriptive stats
+   - All anchor citations peer-reviewed (preprints as auxiliary only)
+   - No internal workflow labels in submission text (R1/C1/C2 etc.)
+   - Closing sentences in perfect tense (not "本文将…" prospectus tone)
+   - Method statement aligned with target venue exemplar pattern
+
+Five core writing principles (anchored during iteration, derived from problematization review methodology + Chinese LIS senior reviewer feedback):
+
+1. Less "research X is insufficient", more "what perspectives can be transposed"
+2. Review is "problem positioning", not "information stacking"
+3. Integrate by concept clusters / contested points / research paths, not by chronology or author lists
+4. Sketch a "knowledge map" (paths + relations + your connection point)
+5. Explicitly state "what my research is responding to"
+
+Empirical basis: 2026-05 peer review judgment mechanism review project went through 5 reviewer rounds (v7.1 → v8.7) before structure stabilized. Each round addressed a distinct failure mode:
+- Round 1 · Subtitle redesigned from actions to findings
+- Round 2 · §4 / §5 separated (diagnosis vs solution, no overlap)
+- Round 3 · Method statement softened ("system文献识别 + 问题导向述评" replaces over-strong "systematic review" claim)
+- Round 4 · Internal workflow labels (R1/C1/C2) removed from draft
+- Round 5 · Closing tense changed from prospectus to perfect; transition table relocated from middle of §5 to its head
+
+Without these rounds, the draft would have been written in a form that does not match the target venue's "problem-driven review" convention, and would face desk rejection or major-revision recycling.
+
+Output files: `outline_locked.md`, `outline_iteration_log.md`, updates to `paper_state.json` (`outline_lock_date`, `iteration_rounds_count`, `central_question`).
 
 ### Step 4.7. Build the Citation Bank
 
