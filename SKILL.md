@@ -27,7 +27,10 @@ For a new paper workspace, create these files first:
 - `workflow/question_lock.md`
 - `workflow/motivation_lock.md` (locks central argument before drafting)
 - `workflow/genre_landscape_scan.md` (scans 5-9 peer venues for form/shell distribution; gates exemplar learning)
+- `workflow/journal_match.md` (reach/match/safe venue shortlist + pre-committed resubmission ladder; re-run after any rejection)
 - `workflow/exemplar_learning_dossier.md` (learns target venue's strong examples; produces target_scene_norms + style_profile)
+- `venue_profiles/<journal>.md` (persistent, reusable per-journal profile: hard format rules + implicit preferences; built once, reused every submission to that venue)
+- `workflow/venue_format_standards.md` (pre-submission format/style gate keyed to the target venue profile; run after revision_gate and whenever switching venues)
 - `workflow/master_outline_lockin.md` (iteratively locks title + section structure + subsection arguments + figure/table config through reviewer rounds, before drafting)
 - `workflow/citation_bank.md` (3× target ratio candidate pool, 80% recency, justification per entry)
 - `notes/source_inventory.md`
@@ -85,6 +88,9 @@ Use the templates in `templates/`:
 - `paper_protocol_template.md`
 - `claim_evidence_matrix_template.md`
 - `revision_gate_template.md`
+- `venue_profile_template.md`
+- `venue_format_standards_template.md`
+- `journal_match_template.md`
 - `paper_state_template.json`
 - `human_style_policy_template.md`
 
@@ -205,6 +211,26 @@ Procedure (5 phases, see template for details):
 
 This step gates exemplar learning. If the chosen form has no precedent in the target field, the exemplar step will fail (no strong exemplars to learn from), and downstream work will produce an unpublishable paper.
 
+### Step 4.56. Match the Venue — Reach / Match / Safe Shortlist + Resubmission Ladder
+
+Use `workflow/journal_match.md` (from `templates/journal_match_template.md`) whenever the target journal is **not yet decided**, or **immediately after any rejection**.
+
+The problem this solves: PaperForge previously assumed the target journal was already chosen (paper_state just records it), with no step owning the choice. Venue mismatch is the most expensive failure — a wrong submission costs a full review cycle to discover, and post-rejection re-targeting tends to happen ad hoc and under emotional pressure.
+
+Procedure (see template for details):
+
+1. **Profile the paper on five signals** — discipline/subfield, method/design, contribution type, setting/data, ambition/strength (be honest on the last one; it sets the reach/safe boundary)
+2. **Build the candidate set from `venue_profiles/INDEX.md`** — a research-profile-scoped ring index (core discipline / adjacent / crossover / international). Pick candidates from the matching ring(s); a venue outside the index gets added to it first (with its match rationale). Any shortlisted venue without a full profile must get at least a quick profile (meta + positioning + review-process sections) before it may be tiered; never compare from impressions
+3. **Score five dimensions** — fit, acceptance odds, turnaround, cost/policy, audience. Sort and tier; do NOT fabricate a precise weighted score (odds are too uncertain for false precision)
+4. **Output three tiers, 2-3 venues each** — reach / match / safe, one-line rationale + key live facts per venue. Only-reaches wastes the timeline; only-safes undersells the paper
+5. **Pre-commit the resubmission ladder before submitting** — V_top → (what to change) → V_next → … Execute the ladder on rejection day instead of re-choosing under stress. Desk reject → usually fit/shell, drop a rung (re-check via genre_landscape_scan); referee reject → fix the binding objection first, rung may stay
+
+Hard rules: volatile facts (review cycle, word limits, fees, same-venue-resubmission policy) are read live from the venue profile (respect `⚠️待复核` flags), never quoted from memory; per-venue fit judgment defers to that venue's profile — this step only compares, tiers, and sequences.
+
+Empirical basis: after the 2026-06 《图书情报工作》 reject, the re-targeting analysis that landed on 《情报理论与实践》 was done entirely by hand and left no reusable method — exactly the gap this step closes.
+
+Design source: `awesome-journal-skills` `shared-resources/journal-selection/journal-match.md` (five-signal profile → five-dimension scoring → three-tier shortlist → resubmission ladder). PaperForge uses its own `venue_profiles/` as the candidate index instead of the upstream 185-pack venue-index.tsv.
+
 ### Step 4.6. Learn the Target Venue Through Exemplars
 
 Use `workflow/exemplar_learning_dossier.md` to **structurally study** 2-3 strong recent papers from the target venue, before drafting any substantive section.
@@ -226,6 +252,27 @@ The dossier consolidates into two operable outputs:
 - `style_profile.md` — sentence length, paragraph density, term density, voice, tense, naming style
 
 After drafting any major section, run a reverse audit against these two outputs. Explicitly decide for any deviation whether to align or deliberately diverge (with stated reason).
+
+### Step 4.62. Build / Load the Persistent Venue Profile
+
+Use `venue_profiles/<journal>.md` (from `templates/venue_profile_template.md`) to **persist** what `exemplar_learning_dossier` and `genre_landscape_scan` learn, into a **reusable, cross-paper** asset.
+
+The problem this solves: PaperForge's venue learning was per-paper and threw away its output — the same journal got studied from scratch every submission, and hard format rules (structured-abstract shape, reference style, word limits, classification number) were re-discovered (and re-violated) each time.
+
+Division of labor:
+- `exemplar_learning_dossier` learns **how to write *this* paper** (topic-specific exemplars) — one-shot.
+- `venue_profile` stores **the journal's long-stable hard rules + implicit preferences** — a standing asset. Build a journal's profile once; load it on every future submission to that venue.
+
+Rules:
+1. One file per target journal: `venue_profiles/<journal>.md`
+2. Every "hard rule" field must carry a **source link + verification date**; fields unverified > 12 months are flagged `⚠️待复核`
+3. Never fabricate a field — write `以官网最新稿约为准` if unsure
+4. After each real submission, append observations (review cycle, revision preferences, named problems) to the profile's 实战记录
+5. The profile feeds Step 4.6 (`exemplar_learning_dossier`) and the Step 7.6 format gate
+
+Design source: Stanford REAP / CoPaper.AI `awesome-journal-skills` (per-journal skill packs). PaperForge absorbs its *persistent per-journal knowledge* architecture, but builds **only the venues PaperForge actually submits to** — it does not import the upstream English-journal content packs.
+
+Seed profiles already built (Chinese LIS / education): `图书情报工作`, `现代情报`, `情报理论与实践`, `研究生教育研究`.
 
 ### Step 4.65. Lock the Master Outline Through Reviewer Rounds
 
@@ -347,6 +394,17 @@ It includes:
 
 Never let one role write, interpret, and approve itself.
 
+Committee protocol (absorbed from `awesome-journal-skills` `shared-resources/submission-readiness/simulated-referee.md`):
+
+1. **Calibrate to the venue first.** Pull the strictness setting from `venue_profiles/<journal>.md` (常见退稿/退修触发点, 录用率印象, 定位与栏目偏好) — a top-tier desk-screen and a field-journal review are different bars; a venue-blind committee produces noise
+2. **Desk-screen before referees.** The Desk Reject Editor Simulator runs first: in scope? contribution type rewarded here? any fatal flaw? Output desk-reject risk (low/med/high) with the deciding reason. A clear desk reject stops the round — do not spend referee effort on it
+3. **Independent reports, distinct lenses.** Each reviewer writes its report independently (not anchored on the others), in its own lens. Three clones of the same skeptic miss what lens diversity catches. When running multi-agent, spawn one subagent per role with the same manuscript + the same calibrated bar, then synthesize
+4. **Adversarially verify every major concern** before it may be reported: it must be **real** (not a misreading of the draft), **specific** (names the section/table and the mechanism), and **addressable** (the author can act on it) — or it is downgraded to minor or dropped. This kills plausible-but-unfair objections that waste revision cycles
+5. **Synthesize into a decision band, not a verdict.** Output reject / major / minor / lean-accept as a *band*, naming the **1-3 decisive issues** (those that actually move the decision) separately from the long tail of minors. Never output a fake acceptance probability — the committee is a rehearsal, not peer review
+6. **Map every decisive issue to the owning workflow file** (claim_evidence_matrix, citation_bank, master_outline_lockin, venue_format_standards, …) so the fix list is immediately actionable
+
+Scoring discipline (shared with Step 7/7.6 gates): PASS / FLAG / FAIL per dimension; anything unverifiable is marked UNKNOWN, never silently passed — no false green.
+
 ### Step 6.3. Build the Writing Rationale Matrix Before Drafting Each Unit
 
 Use `workflow/writing_rationale_matrix.md` to record, for each manuscript unit (chapter / section / sub-section / key argumentative paragraph), the rationale of its existence.
@@ -426,6 +484,7 @@ Before each integration round, check:
 10. drafted sections audit cleanly against `target_scene_norms.md` and `style_profile.md`
 11. reviewer committee outputs do not contain unresolved desk-reject blockers
 12. if a prose-risk pass is used, it follows `human_style_policy.md` and does not alter claims, citations, numeric meaning, or generalization boundary
+13. the target venue's `venue_profiles/<journal>.md` is loaded, and `venue_format_standards.md` (Step 7.6) is queued for after this gate passes
 
 If a blocker remains, do not proceed to the next integration round.
 
@@ -441,6 +500,18 @@ The workflow enforces four sequential phases:
 4. **Safety check** — verifies main_claim integrity, writing_rationale_matrix synchronization, numerical/citation consistency (re-run integrity_gate Phase 2/3), cross-reviewer contradiction handling, and 1:1 correspondence between rebuttal letter and marked-up manuscript
 
 The workflow prevents two common rebuttal failure modes: emotional point-by-point reflexive disagreement (editor sides with reviewer), and undifferentiated yes-to-all (core claim quietly weakened).
+
+### Step 7.6. Run the Venue Format Standards Gate
+
+After `revision_gate` passes (content is locked) and before actual submission, run `workflow/venue_format_standards.md` (from `templates/venue_format_standards_template.md`) against the target `venue_profiles/<journal>.md`.
+
+This is a **pure format/style gate**, separate from `integrity_gate` (which checks content truthfulness). It exists because a strong paper can still be desk-rejected for low-level format errors — a stray comma in the abstract, wrong reference style, missing classification number or bilingual elements — all of which read to an editor as careless scholarship.
+
+It checks five blocks against the venue profile: abstract (structure / word count / person / punctuation), title-keywords-classification, body format (heading numbering, abbreviation expansion, figure/table numbering), references & citation style, and submission requisites.
+
+Re-run this gate **every time you switch venues** — reference style, abstract structure, and heading numbering differ by journal (e.g., LIS journals use GB/T 7714 superscript brackets + Arabic numbering, while education journals like 研究生教育研究 use note-style references + Chinese-numeral headings + third-person abstracts).
+
+Empirical basis: the 2026-06 《图书情报工作》 reject was explicitly faulted (review point 8) for an extra comma in the abstract and format inconsistencies — exactly what this gate catches.
 
 ### Step 8. Optional Prose-Risk Pass
 

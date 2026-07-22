@@ -54,8 +54,10 @@ It sits between you and the temptation to start freeform drafting before:
 11. **Anonymize / data-governance review** as a gate — 脱敏与数据治理作为门槛
 12. **AI research failure-mode checklist (7 modes)** — 失败模式清单（含引文幻觉 / 实现 bug / 结果幻觉等）
 13. **Integrity gate (5 phases)** — 形式层验证 gate
-14. **Rebuttal workflow (4 phases)** — R&R 后的 concern 拆解 → 策略锁定 → 草稿 → safety check，防硬刚和盲从两种失败模式
-15. **Reviewer-committee pre-screen** (optional) — 可选预审稿委员会
+14. **Persistent venue profiles + per-venue format gate** — 把每篇现学的 venue 知识沉淀为可复用的按刊档案，投稿前跑一道纯格式/体例核对（专治摘要标点、参考文献体例、双语缺失等低级退稿）
+15. **Rebuttal workflow (4 phases)** — R&R 后的 concern 拆解 → 策略锁定 → 草稿 → safety check，防硬刚和盲从两种失败模式
+16. **Reviewer-committee pre-screen** (optional) — 可选预审稿委员会：按刊校准严格度、独立多视角报告、major concern 须过 real/specific/addressable 对抗核验、输出 decision band + 1-3 个决定性问题（不输出假的录用概率）
+17. **Journal match + resubmission ladder** — 选刊显式化：五信号画像 → 五维评分 → reach/match/safe 三档清单，投第一家之前就锁定退稿后的重投阶梯
 
 ## Repository structure
 
@@ -66,7 +68,7 @@ PaperForge/
 ├── QUICKSTART.md            # quickstart with 14-file workflow
 ├── docs/
 │   └── roles.md             # agent role decomposition (writer / reviewer / verifier / style-polisher)
-├── templates/               # 17 workflow templates (markdown + JSON)
+├── templates/               # 20 workflow templates (markdown + JSON)
 │   ├── topic_selection_template.md
 │   ├── scoping_review_template.md
 │   ├── question_lock_template.md
@@ -83,14 +85,25 @@ PaperForge/
 │   ├── integrity_gate_template.md
 │   ├── revision_gate_template.md
 │   ├── rebuttal_workflow_template.md          # NEW (v0.5: 4-phase R&R handling)
+│   ├── venue_profile_template.md              # NEW (v0.7: persistent per-journal profile)
+│   ├── venue_format_standards_template.md     # NEW (v0.7: pre-submission format gate)
+│   ├── journal_match_template.md              # NEW (v0.8: reach/match/safe shortlist + resubmission ladder)
 │   ├── human_style_policy_template.md
 │   └── paper_state_template.json
+├── venue_profiles/          # NEW (v0.7): reusable per-journal profiles (built once, reused per submission)
+│   ├── INDEX.md                               # NEW (v0.8: research-profile-scoped ring index, 34 venues; full profiles built on shortlist only)
+│   ├── 图书情报工作.md
+│   ├── 现代情报.md
+│   ├── 情报理论与实践.md
+│   └── 研究生教育研究.md
 ├── LICENSE                  # MIT
 └── CITATION.cff
 ```
 
 ## Version history
 
+- **v0.8** (2026-07-15) · Venue-selection + committee-protocol upgrade, absorbed from `awesome-journal-skills` v1.0's new cross-journal capability layer (`shared-resources/`): (1) `journal_match_template.md` (Step 4.56 — five-signal paper profile → five-dimension scoring → reach/match/safe three-tier shortlist → pre-committed resubmission ladder; run when the target journal is undecided and re-run after any rejection; candidate venues must have a `venue_profiles/` entry before comparison). (2) Reviewer Committee protocol hardened (Step 6): venue-calibrated strictness, desk-screen-first ordering, independent distinct-lens reports, adversarial verification of every major concern (real + specific + addressable, else downgraded), decision-band output with 1-3 decisive issues mapped to owning workflow files, and a no-false-green rule (UNKNOWN ≠ PASS). Motivated by the post-reject re-targeting having been done entirely by hand. Plus `venue_profiles/INDEX.md`: a research-profile-scoped venue ring index (中文图情 / 教育与教育技术 / 科学学与科研管理 / English LIS & HE — 34 venues) adapting `awesome-journal-skills`' venue-index.tsv idea to a single-author workflow: index rows are cheap, full profiles are built only when a venue enters a shortlist; where the upstream repo has a matching pack (科学学 cluster, 电子政务), the index points to it as a verified-before-use drafting source.
+- **v0.7** (2026-06-22) · Persistent venue-knowledge upgrade: `venue_profile_template.md` (Step 4.62 — sediment per-paper venue learning into reusable, cached per-journal profiles) + `venue_format_standards_template.md` (Step 7.6 — pure format/style gate keyed to the venue profile, separate from integrity_gate). Seed profiles built for 图书情报工作 / 现代情报 / 情报理论与实践 / 研究生教育研究. Absorbs the *persistent per-journal knowledge* architecture from Stanford REAP/CoPaper.AI `awesome-journal-skills` (builds only the venues PaperForge actually submits to, not the upstream English-journal content packs). Motivated by a real 《图书情报工作》 desk-reject faulted for abstract punctuation + format inconsistencies.
 - **v0.6** (2026-05-27) · Outline-lock upgrade: `master_outline_lockin_template.md` (Step 4.65 — iteratively lock title, section structure, subsection arguments, and figure/table config through multiple reviewer rounds before drafting). Closes the gap between "why / what shell / what style" (upstream steps) and "what each section actually argues" (the drafting interface).
 - **v0.5** (2026-05-25) · Form/shell + R&R upgrade: `genre_landscape_scan_template.md` (scans 5-9 peer venues for form/shell distribution before exemplar learning, prevents "right kernel but no venue accepts the form" failure) + `rebuttal_workflow_template.md` (4-phase R&R handling distilled from peer paper-skill work).
 - **v0.4** (2026-05-24) · Series & branding upgrade: Step 4.8 Concept Naming Pass (every paper must produce one sticky concept) + Step 6.4 Methodology Spin-off Check (don't bury the method). Distilled from sustained study of high-output IS scholars.
